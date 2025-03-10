@@ -1,0 +1,584 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "troglodyte_popregular";  /*homepage font*/
+    src: url("troglop_-webfont.woff2") format("woff2"), 
+	url("troglop_-webfont.woff") format("woff");
+}
+
+body {
+	font-family: "Archivo Black", sans-serif;  /*imported font from google fonts*/
+	font-size: 18px;
+	height: 100vh;
+	margin: 0;
+	background-color: black;
+	color: white;
+	letter-spacing: 2px;
+}
+
+
+
+#js-container { /* js is because it is used in a JavaScript function, and has a js id*/
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+	height: 100%;
+	max-height: 100vh;
+	width: 100%;
+	background-attachment: fixed;  /*parallax effect*/
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#js-container .topnav {
+	display: flex;
+	position: fixed;
+	top: 0;
+	min-width: 100%;
+	align-self: flex-start;
+	align-items: center;
+	height: auto;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5.5px);
+	justify-content: center;
+	transition: 0.4s;
+	z-index: 2; /*so it lies ontop of the other elements on the page (namely about-text)*/
+}
+
+.nav-links-container {
+	flex: 1 1 50%;  /*grow:1 shrink:1 initial length: 50% of parent (.topnav)*/
+	position: relative;
+	max-width: 60%;  /*it looks weird when the links are sperad out too much on a large screen*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: 2s;  /*when the screen moves sizes, ease the transition*/
+}
+
+.nav-links-container a {
+	color: white;
+	opacity: 0.8;
+	flex: 0 1 auto;
+	text-align: center;
+	width: auto;
+	height: auto;
+	padding: 15px 10px 15px 10px;
+	margin: 0 2% 0 2%;  /*so it scales reponsively*/
+	text-decoration: none;
+	transition: 0.4s;
+}
+
+a.active {
+	opacity: 1;  /*make the text brighter when the link is active*/
+	color: white;
+}
+
+a:hover {
+	color: white;
+	opacity: 1;
+	background-color: rgba(255,255,255,0.1);  /* make the link more transparent*/
+}
+
+a.rb-shop {  /*to fit the Redbubble logo*/
+	padding-right: 35px;
+}
+
+.rb-shop img { /*Redbubble logo in front of the tage "Shop" so that users have an idea that it will take them to the Redbubble site*/
+	height: 24px;
+	width: 24px;
+	position: absolute;
+	margin-left: 5px;
+}
+
+.icon::before { /*star icon to show the active page*/
+	display: inline-block;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+.active::before {
+	font: var(--fa-font-regular);
+	content: '\f005';
+}
+
+.logo {display:none;}
+
+.hero-text {
+	text-align: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: auto;
+	transform: translate(-50%, -50%);  /*center the text on the page*/
+	letter-spacing: 7px;
+	padding: 5px 10px 5px 10px;
+	transition: 2s;
+	z-index: 0;
+}
+
+.star-text {
+	margin: 0;
+	font-family: "troglodyte_popregular", sans-serif;
+	font-size: 100px;
+	transition: 2s;
+}
+
+.sans-serif {  /*i didnt like the original lowercase letters of the font, so using a smallcaps version of "archivo Black" (the main font) instead using <span>*/
+	font-variant: small-caps;
+	font-weight:bold;
+	margin: 0;
+	font-size: 100px;
+	transition: 2s;
+}
+
+#js-container .about-text {
+	text-align: center;
+	width: 100%;
+	font-size: 17px;
+	height: auto;
+	padding: 20px 12%;
+	background-color: black;
+	position: absolute;  /*so you can scroll down- parallax effect*/
+	top: 100vh;
+	z-index: 1;  /*to keep the about-text below the nav and mobile menu*/
+}
+
+.about-text p{
+	margin-top: 40px;
+	margin-bottom: 60px;
+}
+
+
+.placeholder {
+	width: 100%;
+	margin: 30px;
+	transition: 1s;
+}
+
+.row {
+	width: 80%;
+	max-width: 80%;
+	align-self: center;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 5px;
+	transition: 2s ease;
+}
+
+/* Create four equal columns that sit next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 5px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  transition: 0.4s ease;
+}
+
+.column img:hover {
+	opacity: 0.8;
+	border-radius: 20px;  /* make the edges rounded on hover*/
+}
+
+.lightbox {  /*when the user clicks on an image in "showcase"*/
+	display: none;
+	justify-content: center;
+	align-content: center;
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.5);
+	backdrop-filter: blur(5.5px);  /*blur the background but make it still transparent (slightly)*/
+	transition: 0.5s;
+}
+
+.lightbox-content {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	padding: 0;
+	width: 100%;
+	height: auto;
+	max-height: 100%;
+	transition: 0.4s;
+}
+
+.close-cursor {
+  color: white;
+  position: absolute;
+  top: 55px;
+  right: 25px;
+  font-size: 40px;
+  z-index: 50;  /* place it above all elements except the mobile menu*/
+}
+
+.close-cursor:hover, .close-cursor:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+	display: none;  /*normally, the lightbox and images will not be seen*/
+}
+
+.mySlides img {
+	height: auto;
+	width: auto;
+	max-height: 80vh;
+	max-width: 100%;
+	margin: auto;
+}
+
+.caption-container {
+	position: fixed;
+	bottom: 5%;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 2%;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 1s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.prev {
+	left: 0;
+}
+
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.prev:active, .next:active {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.shop-main {
+	width: 80%;
+	max-width: 80%;
+	align-self: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 0 5px;
+	transition: 2s;
+}
+
+.card {
+	width: 100%;
+	height: auto;
+	margin-top: 8px;
+	padding: 10px;
+	background-color: rgba(255,255,255,0.5);
+	backdrop-filter: blur(5.5px);
+	font-size: 12px;
+	font-weight: normal;
+	transition: 0.4s;
+	vertical-align: middle;
+}
+
+
+.contact-form {
+	align-self: flex-end;
+	flex: 0 1 40%;
+	font-family: "Courier Prime", monospace;
+	font-weight: 400;
+	background-color: rgba(255,255,255,0.1);
+	backdrop-filter: blur(5.5px);
+	padding: 20px;
+	max-width: 90%;
+	margin-right: 5%;
+	top: 30%;
+	position: absolute;
+	z-index: 1;
+	transition: 0.5s;
+}
+
+
+#js-contact-image {
+	position: relative;
+	left: 5%;
+	width: 50%;
+	height: auto;
+	transition: 0.6s;
+}
+
+label.fullname {
+	display: none;
+}
+
+input {
+	background-color: rgba(255,255,255,0.6);
+	backdrop-filter: blur(5.5px);
+	border: none;
+	transition: 0.2s;
+}
+
+input[type=text], select, textarea {
+	width: 100%;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	resize: vertical;
+	border: none;
+	background-color: rgba(255,255,255,0.6);
+}
+
+input:hover {
+	background-color: rgba(255,255,255,0.7);
+}
+
+textarea:hover {
+	background-color: rgba(255,255,255,0.7);
+}
+
+input[type=submit] {
+	background-color: rgba(255,255,255,0.3);
+	backdrop-filter: blur(5.5px);
+	color: rgba(255,255,255,0.6);
+	padding: 12px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: 0.3s;
+	font-family: "Archivo Black", sans-serif;
+}
+
+input:focus-visible {
+	border: none;
+	outline: none;
+	background-color: rgba(255,255,255,0.8);
+}
+
+textarea:focus-visible {
+	border: none;
+	outline: none;
+	background-color: rgba(255,255,255,0.8);
+}
+
+input[type=submit]:hover {
+  background-color: rgba(255,255,255,0.9);
+  color:black;
+}
+
+ input[type=email] {
+	 width: 100%;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	resize: vertical;
+ }
+
+h1 {
+	width: 100%;
+	text-align: center;
+	font-family: "Archivo Black", sans-serif;
+}
+
+
+@media screen and (max-width: 950px) {
+	.nav-links-container {
+		max-width: 80%;
+	}
+	
+	.row {
+		width: 90%;
+		max-width: 90%;
+	}
+	
+	.lightbox-content {
+		align-content: space-evenly;
+	}
+		
+	
+	.shop-main {
+		width: 90%;
+		max-width: 90%;
+	}
+	
+	
+	#js-contact-image {
+		width: 60%;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+@media screen and (max-width: 700px) {
+	.topnav {
+		flex-direction: column;
+		height: auto;
+		transition: 0.5s;
+	}
+	.nav-links-container {
+		flex-direction: column;
+		height: 0;
+		display: none;
+		z-index: 999;
+		transition: 0.5s;
+	}
+	
+	img.logo {
+		display: initial;
+		height: 100%;
+	}
+	
+	a.logo {
+		display: initial;
+		align-self: flex-start;
+		height: 60px;
+		padding: 15px;
+	}
+	
+	.star-text, .sans-serif {
+		font-size: 70px;
+	}
+	
+	#js-container .about-text {
+		font-size: 14px;
+		padding: 20px 5%;
+	}
+	
+	.placeholder {
+		margin: 40px;
+	}
+	
+	.hamburger-container {
+		align-self: flex-end;
+		display: initial;
+		position: absolute;
+		top: 0;
+		cursor: pointer;
+		margin: 0;
+		padding: 10px 0 10px 0;
+		width: 10%;
+	 }
+
+	 .bar1, .bar2, .bar3 {
+		width: 30px;
+		height: 4px;
+		background-color: #ffffff;
+		margin: 6px 0;
+		transition: 0.4s;
+	  }
+	  
+	  .change .bar1 {
+		transform: translate(0, 10px) rotate(-45deg);
+	  }
+	  
+	  .change .bar2 {opacity: 0;}
+	  
+	  .change .bar3 {
+		transform: translate(0, -10px) rotate(45deg);
+	  }
+
+	 .ToggleShow {
+		transition: 0.5s;
+		display: flex;
+		height: auto;
+		width: 100%;
+	  }
+	  
+	 .column {
+		flex: 50%;
+		max-width: 50%;
+		}
+		
+	 .mySlides img {
+		max-height: 70vh;
+	  }
+		
+	 .prev, .next {
+		transition: 0.6s ease-in-out;
+		top: 92%;
+	  }
+	  
+	  .prev {
+		  left: 40%;
+	  }
+	  
+	  .next {
+		  right: 40%;
+	  }
+		 
+	 .prev:hover, .next:hover {
+		background-color: transparent;
+		backdrop-filter: none;
+	}
+		
+	.prev:active, .next:active {
+		transition: 1s;
+	}
+		
+	#js-contact-image {
+		display: none;
+	}
+	
+	.contact-form {
+		margin-left: 50%;
+		top: 20%;
+		width: 90%;
+		height: auto;
+		font-size: 12px;
+	}
+	
+	input#fname {
+		max-width: 48%;
+	}
+	
+	input#lname {
+		max-width: 48%;
+	}
+	
+	label[for="fname"] {
+		display: none;
+	}
+	
+	label[for="lname"] {
+		display: none;
+	}
+	
+	label.fullname {
+		display: block;
+	}
+	
+}
+
+@media screen and (max-width: 600px) {
+	.column {
+		flex: 100%;
+		max-width: 100%;
+	}
+}

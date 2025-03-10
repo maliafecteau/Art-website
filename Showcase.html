@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Showcase</title>
+		<link rel="icon" href="images/MF-favicon.png">
+		<link href="homepage.css" rel="stylesheet" type="text/css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="height=device-height, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/4032461ae3.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+	<script src="myScript.js"></script>
+		<div id="js-container">
+			<div class="topnav">
+				<a href="Homepage.html" class="logo" title="Home"><img class="logo" src="images/MF-logo.png" alt="MF Logo"></a>
+				<div class="hamburger-container" onclick="toggleMobileNav(this)">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+					<div class="bar3"></div>
+				</div>
+				<nav class="nav-links-container">
+					<a href="Homepage.html" title="Home">Home</a>
+					<a class="active" href="Showcase.html" title="My art and paintings">Showcase</a>
+					<a href="https://www.redbubble.com/people/maliafecteau/shop?asc=u" target="blank" class="rb-shop" title="My art as merch">Shop<img src="images/redbubble.svg" alt="Redbubble Logo"></a>
+					<a href="Contact.html" title="Contact me">Contact</a>
+				</nav>
+			</div>
+			
+			<div class="placeholder"></div>
+			
+			<div class="row">
+			  <div class="column">
+				<img src="images/sunscreen-small.jpg" onclick="openModal();currentSlide(1)" alt="Painting of three girls putting sunscreen on each others backs, with ransom text reading 'can you do my back?'">
+				<img src="images/angle-small.jpg" onclick="openModal();currentSlide(2)" alt="Painting of a teenage girl pointing a selfie camera at her head, with ransom-style text reading 'There's always a better angle.'">
+				<img src="images/homeimg-small.jpg" onclick="openModal();currentSlide(3)" alt="Painting of a small girl crouched in a field picking flowers, facing away from the viewer, with ransom text reading 'oi, girl!'." >
+				<img src="images/bottle-small.jpg" onclick="openModal();currentSlide(4)"  alt="A painting after artist Shaun Tan.  There is a girl in a diving helmet inside a green bottle on a stormy, rocky beach.">
+			  </div>
+			  <div class="column">
+			  	<img src="images/landscape-small.jpg" onclick="openModal();currentSlide(5)" alt="A painting after artist Stuart Davies of an overcast landscape with a winding path">
+				<img src="images/behind-counter-small.jpg" onclick="openModal();currentSlide(6)" alt="Painting from the perspective of behind the counter of a convenience store, where a man is lurking behind the shelves staring at the viewer.">
+				<img src="images/night-small.jpg" onclick="openModal();currentSlide(7)" alt="A low-perspective painting of a dark room with a man silhouetted in the doorway and a woman draped on a bed next to a window, with an old tv on a table.">
+				<img src="images/tv-girl-small.jpg" onclick="openModal();currentSlide(8)" alt="Blue-toned painting of a girl with white hair sitting and covering her ears in front of a wall of old TV's whose screens show images of her.">
+			  </div>
+			  <div class="column">
+				<img src="images/bath-small.jpg" onclick="openModal();currentSlide(9)" alt="A painting after 'Soaking' by artist Ron Hicks, with a woman lying naked in a bathtub, the bathtub obscuring her body.">
+				<img src="images/masculine-small.jpg" onclick="openModal();currentSlide(10)" alt="Painting of a defiant-looking young girl sitting on a chair with her foot resting on her other knee, and her hands behind her chair.">
+				<img src="images/vanity-small.jpg" onclick="openModal();currentSlide(11)" alt="A painting after 'Vanitas' by artist Leon-Jean-Basile Perrault, with a naked woman lounging with an ornate mirror in her hand, looking at herself.">
+				<img src="images/grocery-girl-small.jpg" onclick="openModal();currentSlide(12)" alt="Painting of a teenage girl in short denim shorts and a strapless top facing towards the corner of a shopping aisle.">
+			  </div>
+			  <div class="column">
+				<img src="images/bikini-small.jpg" onclick="openModal();currentSlide(13)" alt="Painting of two teenage girls in bikinis making claws with their hands at the camera.  One girl's back is to the camera, but she has turned to face the camera.">
+				<img src="images/knees-small.jpg" onclick="openModal();currentSlide(14)" alt="Painting of legs from the knee-down with white legwarmers and black shoes, with ransom text reading 'If he's mean to you, that means he likes you'.">
+			  </div>
+			</div>
+			
+			<div id="js-lightbox" class="lightbox">
+				<span class="close-cursor" onclick="closeModal()">&times;</span>
+				<div class="lightbox-content">
+				
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<div class="mySlides">
+						<img src="images/sunscreen.jpg" alt="Painting of three girls putting sunscreen on each others backs, with ransom text reading 'can you do my back?'">
+					</div>
+					<div class="mySlides">
+						<img src="images/angle.jpg" alt="Painting of a teenage girl pointing a selfie camera at her head, with ransom-style text reading 'There's always a better angle.'">
+					</div>
+					<div class="mySlides">
+						<img src="images/homeimg.jpg" alt="Painting of a small girl crouched in a field picking flowers, facing away from the viewer, with ransom text reading 'oi, girl!'.">
+					</div>
+					<div class="mySlides">
+						<img src="images/bottle.jpeg" alt="A painting after artist Shaun Tan.  There is a girl in a diving helmet inside a green bottle on a stormy, rocky beach.">
+					</div>
+					<div class="mySlides">
+						<img src="images/landscape.jpg" alt="A painting after artist Stuart Davies of an overcast landscape with a winding path">
+					</div>
+					<div class="mySlides">
+						<img src="images/behind-counter.jpg" alt="Painting from the perspective of behind the counter of a convenience store, where a man is lurking behind the shelves staring at the viewer.">
+					</div>
+					<div class="mySlides">
+						<img src="images/night.jpg" alt="A low-perspective painting of a dark room with a man silhouetted in the doorway and a woman draped on a bed next to a window, with an old tv on a table.">
+					</div>
+					<div class="mySlides">
+						<img src="images/tv-girl.jpeg" alt="Blue-toned painting of a girl with white hair sitting and covering her ears in front of a wall of old TV's whose screens show images of her.">
+					</div>
+					<div class="mySlides">
+						<img src="images/bath.jpeg" alt="A painting after 'Soaking' by artist Ron Hicks, with a woman lying naked in a bathtub, the bathtub obscuring her body.">
+					</div>
+					<div class="mySlides">
+						<img src="images/masculine.jpg" alt="Painting of a defiant-looking young girl sitting on a chair with her foot resting on her other knee, and her hands behind her chair.">
+					</div>
+					<div class="mySlides">
+						<img src="images/vanity.jpg" alt="A painting after 'Vanitas' by artist Leon-Jean-Basile Perrault, with a naked woman lounging with an ornate mirror in her hand, looking at herself.">
+					</div>
+					<div class="mySlides">
+						<img src="images/grocery-girl.jpg" alt="Painting of a teenage girl in short denim shorts and a strapless top facing towards the corner of a shopping aisle.">
+					</div>
+					<div class="mySlides">
+						<img src="images/bikini.jpg" alt="Painting of two teenage girls in bikinis making claws with their hands at the camera.  One girl's back is to the camera, but she has turned to face the camera.">
+					</div>
+					<div class="mySlides">
+						<img src="images/knees.jpg" alt="Painting of legs from the knee-down with white legwarmers and black shoes, with ransom text reading 'If he's mean to you, that means he likes you'.">
+					</div>
+					
+					<div class="caption-container">
+						<p id="js-caption"></p>
+					</div>
+					 
+					 <a class="next" onclick="plusSlides(1)">&#10095;</a>
+					 
+					  
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

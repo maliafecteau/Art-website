@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Malia Fecteau</title>
+		<link rel="icon" href="images/MF-favicon.png">
+		<link href="homepage.css" rel="stylesheet" type="text/css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="height=device-height, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<script src="https://kit.fontawesome.com/4032461ae3.js" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+	</head>
+	<body>
+	<script src="myScript.js"></script>
+		<div id="js-container">
+			<div class="topnav">
+					<a href="Homepage.html" class="logo" title="Home"><img class="logo" src="images/MF-logo.png" alt="MF Logo"></a>
+					<div class="hamburger-container" onclick="toggleMobileNav(this)">
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</div>
+					<nav class="nav-links-container">
+						<a href="Homepage.html" title="Home">Home</a>
+						<a href="Showcase.html" title="My art and paintings">Showcase</a>
+						<a href="https://www.redbubble.com/people/maliafecteau/shop?asc=u" target="blank" class="rb-shop" title="My art as merch">Shop<img src="images/redbubble.svg" alt="Redbubble Logo"></a>
+						<a class="active" href="Contact.html" title="Contact me">Contact</a>
+				</nav>
+			</div>
+			
+			<div class="placeholder"></div>
+			<h1>Contact Me</h1>
+			<img id="js-contact-image" alt="A randomised photo of one of my paintings.">
+			<div class="contact-form" id ="js-contact-form">
+				
+				<form action="action_page.php">
+				
+					<label class="fullname">Full Name</label>
+					<label for="fname">First Name</label>
+					<input type="text" id="fname" name="firstname" placeholder="First name..">
+
+					<label for="lname">Last Name</label>
+					<input type="text" id="lname" name="lastname" placeholder="Last name..">
+
+					<label for="email">Email Address</label>
+					<input type="email" id="email" name="email" placeholder="example@email.com" required>
+					 <br>
+					 <br>
+					<label for="subject">Subject</label>
+					<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+					<input type="submit" value="Submit">
+			  </form>
+			</div>
+		</div>
+	</body>
+</html>
